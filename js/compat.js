@@ -197,6 +197,9 @@
 					}
 					else {
 						value = callback(initialValue, O[i], i, O);
+						func = function(i) {
+							value = callback(value, O[i], i, O);
+						}
 					}
 					
 				};
