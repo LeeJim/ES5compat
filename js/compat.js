@@ -214,4 +214,33 @@
  		}
  	}
 
+ 	if( !Array.prototype.uniq ) {
+ 		Array.prototype.uniq = function () {
+ 		    var newArr = [];
+ 		    var hasNaN = false;
+ 		    if(this === null || typeof this === 'undefined') throw typeError();
+ 		    var len = this.length;
+ 		    var O = Object(this);
+ 		    if(len===1) return this;
+ 		    for(var i=0; i<len; i++) {
+ 		    	var isNew = (newArr.indexOf(this[i]) === -1);
+ 		    	if( !hasNaN && O[i]!==O[i] ) {
+ 		    		hasNaN = true;
+ 		    		newArr.push(O[i]);
+ 		    	}
+ 		    	if( hasNaN && O[i]!==O[i] ) continue;
+ 		    	else if( i in O && isNew ) {
+ 		    		newArr.push(O[i]);
+ 		    	}
+ 		    }	
+ 		    return newArr;
+ 		}
+ 	}
+ 	
+ 	if( Array.isArray ) {
+ 		Array.isArray = function(o) {
+ 			return Object.prototype.toString.call(o) === '[object Array]';
+ 		}
+ 	}
+
  })()
