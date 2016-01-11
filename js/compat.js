@@ -14,7 +14,7 @@
  			// typeof fromIndex == int ? fromIndex : +fromIndex
  			// fromIndex = Infinity || fromIndex >= len || fromIndex <0 
  			if(this === null ) {
- 				throw new typeError(' "this" is null or not defined');
+ 				throw new TypeError(' "this" is null or not defined');
  			}
 
  			var O = Object(this);
@@ -44,11 +44,11 @@
 
  		Array.prototype.forEach = function(callback, context) {
 
- 			if( this === null || typeof this === 'undefined' ) throw new typeError();
+ 			if( this === null || typeof this === 'undefined' ) throw new TypeError();
 
  			var len = this.length;
 
- 			if( len==0 ) throw new typeError();
+ 			if( len==0 ) throw new TypeError();
 			
 			var isFunc = Object.prototype.toString.call(callback) === '[object Function]';
 			
@@ -70,11 +70,11 @@
 
  			var result = [];
 
- 			if( this === null || typeof this === 'undefined' ) throw new typeError();
+ 			if( this === null || typeof this === 'undefined' ) throw new TypeError();
 
  			var len = this.length;
 
- 			if( len==0 ) throw new typeError();
+ 			if( len==0 ) throw new TypeError();
 
  			var isFunc = Object.prototype.toString.call(callback) === '[object Function]';
 			
@@ -95,11 +95,11 @@
 
  		Array.prototype.every = function(callback, context) {
 
- 			if( this === null || typeof this === 'undefined' ) throw new typeError();
+ 			if( this === null || typeof this === 'undefined' ) throw new TypeError();
 
  			var len = this.length;
 
- 			if( len==0 ) throw new typeError();
+ 			if( len==0 ) throw new TypeError();
 
  			var isFunc = Object.prototype.toString.call(callback) === '[object Function]';
 			
@@ -119,11 +119,11 @@
 
  		Array.prototype.some = function(callback, context) {
 
- 			if( this === null || typeof this === 'undefined' ) throw new typeError();
+ 			if( this === null || typeof this === 'undefined' ) throw new TypeError();
 
  			var len = this.length;
 
- 			if( len==0 ) throw new typeError();
+ 			if( len==0 ) throw new TypeError();
 
  			var isFunc = Object.prototype.toString.call(callback) === '[object Function]';
 			
@@ -146,11 +146,11 @@
 
  			var result = [];
 
- 			if( this === null || typeof this === 'undefined' ) throw new typeError();
+ 			if( this === null || typeof this === 'undefined' ) throw new TypeError();
 
  			var len = this.length;
 
- 			if( len==0 ) throw new typeError();
+ 			if( len==0 ) throw new TypeError();
 
  			var isFunc = Object.prototype.toString.call(callback) === '[object Function]';
 			
@@ -171,13 +171,13 @@
 
  		Array.prototype.reduce = function(callback, initialValue) {
 
- 			if( this === null || typeof this === 'undefined' ) throw new typeError();
+ 			if( this === null || typeof this === 'undefined' ) throw new TypeError();
 
  			var len = this.length;
 
  			var O = Object(this);
 
- 			if( len==0 ) throw new typeError();
+ 			if( len==0 ) throw new TypeError();
 
  			var isFunc = Object.prototype.toString.call(callback) === '[object Function]';
 			
@@ -218,7 +218,7 @@
  		Array.prototype.uniq = function () {
  		    var newArr = [];
  		    var hasNaN = false;
- 		    if(this === null || typeof this === 'undefined') throw typeError();
+ 		    if(this === null || typeof this === 'undefined') throw new TypeError();
  		    var len = this.length;
  		    var O = Object(this);
  		    if(len===1) return this;
